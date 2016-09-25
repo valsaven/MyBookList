@@ -7,3 +7,7 @@ body {
   text-align: center;
   font-family: Verdana, Arial;
 }
+
+/* inject:css */
+@import 'main/main.css';
+/* end inject */

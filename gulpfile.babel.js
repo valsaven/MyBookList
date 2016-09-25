@@ -4,11 +4,12 @@
 
 'use strict';
 
+import _ from 'lodash';
 import gulp from 'gulp';
 import http from 'http';
-import gulpLoadPlugins from 'gulp-load-plugins';
-import runSequence from 'run-sequence';
 import nodemon from 'nodemon';
+import runSequence from 'run-sequence';
+import gulpLoadPlugins from 'gulp-load-plugins';
 
 var plugins = gulpLoadPlugins();
 var config;
@@ -69,6 +70,32 @@ function whenServerReady(cb) {
  * Tasks
  */
 
+// inject
+gulp.task('inject', (cb) => {
+  runSequence(['inject:css'], cb);
+});
+
+// inject:css
+gulp.task('inject:css', () => {
+  return gulp.src(paths.client.mainStyle)
+    .pipe(plugins.inject(
+      gulp.src(_.union(paths.client.styles, ['!' + paths.client.mainStyle]),
+        { read: false })
+        .pipe(plugins.sort()),
+      {
+        starttag: '/* inject:css */',
+        endtag: '/* end inject */',
+        transform: (filepath) => {
+          let newPath = filepath
+            .replace(`/${clientPath}/app/`, '')
+            .replace(`/_(.*).css`, (match, p1, offset, string) => p1);
+          return `@import '${newPath}';`;
+        }
+      }
+    ))
+    .pipe(gulp.dest(`${clientPath}/app`));
+});
+
 // start:client
 gulp.task('start:client', (cb) => {
   whenServerReady(() => {
@@ -92,9 +119,5 @@ gulp.task('watch', () => {
 
 // serve
 gulp.task('serve', (cb) => {
-  runSequence(
-    ['start:server', 'start:client'],
-    'watch',
-    cb
-  );
+  runSequence(['inject'], ['start:server'], 'watch', cb);
 });

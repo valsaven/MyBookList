@@ -5,6 +5,7 @@
 'use strict';
 
 import _ from 'lodash';
+import del from 'del';
 import gulp from 'gulp';
 import http from 'http';
 import nodemon from 'nodemon';
@@ -70,6 +71,23 @@ function whenServerReady(cb) {
  * Tasks
  */
 
+//env:all
+gulp.task('env:all', () => {
+  let localConfig;
+
+  try {
+    localConfig = require(`./${serverPath}/config/local.env`);
+  } catch (e) {
+    localConfig = {};
+  }
+  plugins.env({ vars: localConfig });
+});
+
+// clean:tmp
+gulp.task('clean:tmp', () => {
+  del(['.tmp/**/*'], { dot: true });
+});
+
 // inject
 gulp.task('inject', (cb) => {
   runSequence(['inject:css'], cb);
@@ -119,5 +137,12 @@ gulp.task('watch', () => {
 
 // serve
 gulp.task('serve', (cb) => {
-  runSequence(['inject'], ['start:server'], 'watch', cb);
+  runSequence([
+    'clean:tmp',
+    'inject',
+    'env:all'
+    ],
+    ['start:server'],
+    'watch',
+    cb);
 });

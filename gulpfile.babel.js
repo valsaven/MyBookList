@@ -6,14 +6,15 @@
 
 import _ from 'lodash';
 import del from 'del';
+import gulpLoadPlugins from 'gulp-load-plugins';
 import gulp from 'gulp';
 import http from 'http';
 import nodemon from 'nodemon';
+import open from 'open';
 import runSequence from 'run-sequence';
-import gulpLoadPlugins from 'gulp-load-plugins';
 
-var plugins = gulpLoadPlugins();
-var config;
+const plugins = gulpLoadPlugins();
+let config;
 
 const clientPath = 'client';
 const serverPath = 'server';
@@ -44,18 +45,17 @@ function onServerLog(log) {
 }
 
 function checkAppReady(cb) {
-  let options = {
+  const options = {
     host: 'localhost',
     port: config.port
   };
   http.get(options, () => cb(true))
     .on('error', () => cb(false));
-
 }
 
 function whenServerReady(cb) {
   let serverReady = false;
-  let appReadyInterval = setInterval(() =>
+  const appReadyInterval = setInterval(() =>
       checkAppReady((ready) => {
         if (!ready || serverReady) {
           return;
@@ -71,7 +71,7 @@ function whenServerReady(cb) {
  * Tasks
  */
 
-//env:all
+// env:all
 gulp.task('env:all', () => {
   let localConfig;
 
@@ -97,16 +97,16 @@ gulp.task('inject', (cb) => {
 gulp.task('inject:css', () => {
   return gulp.src(paths.client.mainStyle)
     .pipe(plugins.inject(
-      gulp.src(_.union(paths.client.styles, ['!' + paths.client.mainStyle]),
+      gulp.src(_.union(paths.client.styles, [`! ${paths.client.mainStyle}`]),
         { read: false })
         .pipe(plugins.sort()),
       {
         starttag: '/* inject:css */',
         endtag: '/* end inject */',
         transform: (filepath) => {
-          let newPath = filepath
+          const newPath = filepath
             .replace(`/${clientPath}/app/`, '')
-            .replace(`/_(.*).css`, (match, p1, offset, string) => p1);
+            .replace('/_(.*).css', (match, p1, offset, string) => p1);
           return `@import '${newPath}';`;
         }
       }
@@ -117,7 +117,7 @@ gulp.task('inject:css', () => {
 // start:client
 gulp.task('start:client', (cb) => {
   whenServerReady(() => {
-    open('http://localhost:' + config.browserSyncPort);
+    open(`http://localhost: ${config.browserSyncPort}`);
     cb();
   });
 });

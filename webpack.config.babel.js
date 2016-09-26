@@ -9,7 +9,6 @@ import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import HtmlWebpackHarddiskPlugin from 'html-webpack-harddisk-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
-
 const autoprefixer = require('autoprefixer');
 const CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
 
@@ -35,7 +34,7 @@ config.devtool = 'source-map';
 
 config.babel = {
   shouldPrintComment(commentContents) {
-    return /@ngInject/.test(commentContents)
+    return /@ngInject/.test(commentContents);
   }
 };
 
@@ -76,7 +75,9 @@ config.postcss = [
 ];
 
 config.plugins = [
-  new ExtractTextPlugin('[name].[hash].css')
+  new ExtractTextPlugin('[name].[hash].css', {
+    disable: true
+  })
 ];
 
 config.plugins.push(new CommonsChunkPlugin({
@@ -85,7 +86,7 @@ config.plugins.push(new CommonsChunkPlugin({
   })
 );
 
-let htmlConfig = {
+const htmlConfig = {
   template: 'client/_index.html',
   filename: '../client/index.html',
   alwaysWriteToDisk: true

@@ -21,11 +21,12 @@ const serverPath = 'server';
 const paths = {
   client: {
     assets: `${clientPath}/assets/**/*`,
-    images: `${clientPath}/assets/images/*`,
+    images: `${clientPath}/assets/images/**/*`,
     scripts: [`${clientPath}/**/*.js`],
     styles: [`${clientPath}/app/**/*.css`],
     mainStyle: `${clientPath}/app/app.css`,
-    views: `${clientPath}/app/**/*.html`
+    views: `${clientPath}/app/**/*.html`,
+    mainView: `${clientPath}/index.html`
   },
   server: {
     scripts: [`${serverPath}/**/*.js`]
@@ -40,7 +41,7 @@ const paths = {
 function onServerLog(log) {
   console.log(plugins.util.colors.white('[') +
     plugins.util.colors.yellow('nodemon') +
-    plugins.util.colors.white(']') +
+    plugins.util.colors.white('] ') +
     log.message);
 }
 
@@ -84,9 +85,7 @@ gulp.task('env:all', () => {
 });
 
 // clean:tmp
-gulp.task('clean:tmp', () => {
-  del(['.tmp/**/*'], { dot: true });
-});
+gulp.task('clean:tmp', () => del(['.tmp/**/*'], { dot: true }));
 
 // inject
 gulp.task('inject', (cb) => {
@@ -106,7 +105,7 @@ gulp.task('inject:css', () => {
         transform: (filepath) => {
           const newPath = filepath
             .replace(`/${clientPath}/app/`, '')
-            .replace('/_(.*).css', (match, p1, offset, string) => p1);
+            .replace(/_(.*).css/, (match, p1, offset, string) => p1);
           return `@import '${newPath}';`;
         }
       }
@@ -117,7 +116,7 @@ gulp.task('inject:css', () => {
 // start:client
 gulp.task('start:client', (cb) => {
   whenServerReady(() => {
-    open(`http://localhost: ${config.browserSyncPort}`);
+    open(`http://localhost:${config.browserSyncPort}`);
     cb();
   });
 });

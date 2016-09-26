@@ -14,6 +14,6 @@ export default function (app) {
   // app.use('/api/statuses', require('./api/status'));
 
   app.route('/*').get((req, res) => {
-    res.sendFile(path.resolve(app.get('appPath') + '/index.html'));
+    res.sendFile(path.resolve(`${app.get('appPath')}/index.html`));
   });
 }

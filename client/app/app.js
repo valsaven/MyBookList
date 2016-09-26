@@ -13,3 +13,10 @@ import './app.css';
 
 angular.module('myBookListApp', [uiRouter, main])
   .config(routeConfig);
+
+angular.element(document)
+  .ready(() => {
+    angular.bootstrap(document, ['myBookListApp'], {
+      strictDi: true
+    });
+  });

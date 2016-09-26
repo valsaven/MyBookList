@@ -7,9 +7,7 @@
 import errorHandler from 'errorhandler';
 import express from 'express';
 import path from 'path';
-import shrinkRay from 'shrink-ray';
 import config from './env';
-
 
 export default function (app) {
   let env = app.get('env');
@@ -22,7 +20,6 @@ export default function (app) {
   app.set('views', `${config.root}/server/views`);
   app.engine('html', require('ejs').renderFile);
   app.set('view engine', 'html');
-  app.use(shrinkRay());
 
   const webpackDevMiddleware = require('webpack-dev-middleware');
   const stripAnsi = require('strip-ansi');

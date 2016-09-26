@@ -137,12 +137,6 @@ gulp.task('watch', () => {
 
 // serve
 gulp.task('serve', (cb) => {
-  runSequence([
-    'clean:tmp',
-    'inject',
-    'env:all'
-    ],
-    ['start:server'],
-    'watch',
-    cb);
+  runSequence(['clean:tmp', 'inject', 'env:all'],
+    ['start:server', 'start:client'], 'watch', cb);
 });

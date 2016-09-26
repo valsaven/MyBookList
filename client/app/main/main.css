@@ -1,20 +1,23 @@
 /**
  * Created by val on 9/25/16.
  */
+body {
+  margin: 0 0 0 0;
+  text-align: center;
+  font-family: Verdana, Arial;
+}
 
 .header {
   position: relative;
   color: #fff;
-  background-color: #4393b9; /*test*/
-  display: block;
-  width: 1060px;
-  height: 70px;
-  margin: 0 auto;
+  background-color: #4F5D73;
+  width: 1600px;
+  height: 80px;
 }
 
 .header .header-menu .btn-menu {
   display: block;
-  text-align: right;
+  text-align: center;
   font-size: 16px;
 }
 
@@ -25,8 +28,8 @@
 .header .header-title {
   position: absolute;
   top: 21px;
+  left: 260px;
   background-image: url('../../assets/images/logo_head.png');
-  background-position: left top;
   background-repeat: no-repeat;
   background-size: auto 36px;
   display: block;
@@ -34,4 +37,13 @@
   height: 36px;
   text-indent: -9999px;
   overflow: hidden;
+}
+
+.cover {
+  background-color: #4393b9;
+  border: 8px solid white;
+  color: white;
+  margin: 0px 250px 0px 250px;
+  font-weight: 600;
+  font-size: 120%;
 }

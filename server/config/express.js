@@ -7,15 +7,9 @@
 import errorHandler from 'errorhandler';
 import express from 'express';
 import path from 'path';
-import stripAnsi from 'strip-ansi';
-import webpackDevMiddleware from 'webpack-dev-middleware';
-import webpack from 'webpack';
+import shrinkRay from 'shrink-ray';
 import config from './env';
 
-const webpackConfig = require('../../webpack.config.babel');
-const browserSync = require('browser-sync').create();
-
-const compiler = webpack(webpackConfig);
 
 export default function (app) {
   let env = app.get('env');
@@ -27,8 +21,15 @@ export default function (app) {
 
   app.set('views', `${config.root}/server/views`);
   app.engine('html', require('ejs').renderFile);
-
   app.set('view engine', 'html');
+  app.use(shrinkRay());
+
+  const webpackDevMiddleware = require('webpack-dev-middleware');
+  const stripAnsi = require('strip-ansi');
+  const webpack = require('webpack');
+  const webpackConfig = require('../../webpack.config.babel');
+  const compiler = webpack(webpackConfig);
+  const browserSync = require('browser-sync').create();
 
   browserSync.init({
     open: false,
@@ -58,8 +59,7 @@ export default function (app) {
         timeout: 100000
       });
     }
-
-    return browserSync.reload();
+    browserSync.reload();
   });
 
   app.use(errorHandler());

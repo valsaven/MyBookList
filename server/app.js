@@ -6,6 +6,7 @@
 
 import express from 'express';
 import http from 'http';
+import db from './db';
 import config from './config/env';
 
 if (config.seedDB) {
@@ -26,6 +27,10 @@ function startServer() {
   });
 }
 
-setImmediate(startServer);
+db.sequelize.sync()
+  .then(startServer)
+  .catch((err) => {
+    console.log('Server failed to start due to error: %s', err);
+  });
 
 exports = module.exports = app;

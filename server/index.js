@@ -4,14 +4,10 @@
 
 'use strict';
 
-import express from 'express';
+var env = process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
 
-const app = express();
+if (env === 'dev') {
+  require('babel-register');
+}
 
-app.get('/', (req, res) => {
-  res.send('Hello');
-});
-
-app.listen(3000, () => {
-  console.log('Server listening on port 3000...');
-});
+exports = module.exports = require('./app');

@@ -4,16 +4,18 @@
 
 'use strict';
 
+import errorHandler from 'errorhandler';
 import express from 'express';
 import path from 'path';
-import webpackDevMiddleware from 'webpack-dev-middleware';
 import stripAnsi from 'strip-ansi';
+import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpack from 'webpack';
 import config from './env';
 
 const webpackConfig = require('../../webpack.config.babel');
-const compiler = webpack(webpackConfig);
 const browserSync = require('browser-sync').create();
+
+const compiler = webpack(webpackConfig);
 
 export default function (app) {
   let env = app.get('env');
@@ -25,6 +27,7 @@ export default function (app) {
 
   app.set('views', `${config.root}/server/views`);
   app.engine('html', require('ejs').renderFile);
+
   app.set('view engine', 'html');
 
   browserSync.init({
@@ -46,7 +49,7 @@ export default function (app) {
     plugins: ['bs-fullscreen-message']
   });
 
-  compiler.plugin('done', function (stats) {
+  compiler.plugin('done', (stats) => {
     console.log('webpack done hook');
     if (stats.hasErrors() || stats.hasWarnings()) {
       return browserSync.sockets.emit('fullscreen:message', {
@@ -55,7 +58,8 @@ export default function (app) {
         timeout: 100000
       });
     }
-    browserSync.reload();
+
+    return browserSync.reload();
   });
 
   app.use(errorHandler());

@@ -9,5 +9,6 @@ body {
 }
 
 /* inject:css */
+@import 'app.css';
 @import 'main/main.css';
 /* end inject */

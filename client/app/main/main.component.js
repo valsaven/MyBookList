@@ -13,7 +13,16 @@ export class MainController {
   constructor($http) {
     this.$http = $http;
   }
+
+  $onInit() {
+    this.$http.get('/api/books')
+      .then((res) => {
+        this.books = res.data;
+      });
+  }
 }
+
+MainController.$inject = ["$http"];
 
 export default angular.module('myBookListApp.main', [uiRouter])
   .config(routing)

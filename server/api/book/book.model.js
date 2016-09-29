@@ -15,7 +15,7 @@ export default function (sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       primaryKey: true
     },
-    description: DataTypes.STRING,
+    comment: DataTypes.STRING,
     created: DataTypes.DATEONLY,
     currentPage: DataTypes.INTEGER,
     totalPages: DataTypes.INTEGER

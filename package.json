@@ -17,6 +17,7 @@
   "license": "GPL-3.0",
   "dependencies": {
     "angular": "^1.5.8",
+    "angular-resource": "^1.5.8",
     "angular-ui-router": "^0.3.1",
     "bootstrap": "^3.3.7",
     "ejs": "^2.5.2",
@@ -50,7 +51,7 @@
     "gulp-watch": "^4.3.9",
     "html-webpack-harddisk-plugin": "0.0.2",
     "html-webpack-plugin": "^2.22.0",
-    "ng-annotate-loader": "^0.1.1",
+    "ng-annotate-loader": "^0.2.0",
     "nodemon": "^1.10.2",
     "open": "0.0.5",
     "postcss-loader": "^0.13.0",

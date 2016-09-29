@@ -4,16 +4,16 @@
 
 /* Header */
 .header {
-  position: relative;
-  color: #fff;
   background-color: #4F5D73;
+  color: #fff;
   height: 80px;
+  position: relative;
 }
 
 .header .header-menu .btn-menu {
   display: block;
-  text-align: center;
   font-size: 16px;
+  text-align: center;
 }
 
 .header .username {
@@ -21,32 +21,32 @@
 }
 
 .header .header-title {
-  display: block;
   background-size: auto 36px;
   background: url('../../assets/images/logo_head.png') no-repeat;
-  top: 21px;
+  display: block;
   height: 36px;
+  top: 21px;
   width: 240px;
 }
 
 /* Cover */
 .cover {
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
   background-color: #4393b9;
   border: 8px solid white;
   color: white;
-  margin: 0 5% 0 5%;
-  font-weight: 600;
+  display: flex;
+  flex-direction: column;
   font-size: 120%;
+  font-weight: 600;
+  justify-content: center;
+  margin: 0 5% 0 5%;
 }
 
 /* List settings */
 .list {
-  display: flex;
   border: 8px solid white;
+  display: flex;
   margin: 0 5% 0 5%;
   overflow-x: auto;
 }

@@ -4,6 +4,7 @@
 
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
+import moment from 'moment';
 
 import routing from './main.routes';
 
@@ -42,6 +43,9 @@ export class MainController {
     this.$http.get('/api/books')
       .then((res) => {
         this.books = res.data;
+        this.books.forEach(function (book) {
+          book.created = moment(book.created).format('LL');
+        });
       });
   }
 }

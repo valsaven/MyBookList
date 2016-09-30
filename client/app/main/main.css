@@ -61,10 +61,6 @@
   padding-bottom: 10px;
 }
 
-.status:hover {
-  border-bottom: 4px solid #4393B9;
-}
-
 .active {
   color: #787878;
   font-weight: bold;

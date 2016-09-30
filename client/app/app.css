@@ -12,4 +12,5 @@ body {
 /* inject:css */
 @import 'app.css';
 @import 'main/main.css';
+@import '../assets/styles/hover.css';
 /* end inject */

@@ -55,6 +55,7 @@
 
 .status {
   color: #ADADAD;
+  cursor: pointer;
   font-size: large;
   font-weight: 400;
   padding-bottom: 10px;
@@ -64,6 +65,10 @@
   border-bottom: 4px solid #4393B9;
 }
 
+.active {
+  color: #787878;
+  font-weight: bold;
+}
 
 /* List settings */
 .list {
@@ -82,6 +87,26 @@ table, th, td {
   border: 1px solid black;
 }
 
+tr.table-header {
+  font-size: 11px;
+}
+
 th, td {
   /*padding: 5px;*/
+}
+
+td {
+  color: #1d439b;
+}
+td.index {
+  color: black;
+}
+
+td.title {
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background: #ededed;
 }

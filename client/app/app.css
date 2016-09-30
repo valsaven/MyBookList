@@ -10,6 +10,5 @@ body {
 
 /* inject:css */
 @import 'app.css';
-@import 'components/status-menu/sm.css';
 @import 'main/main.css';
 /* end inject */

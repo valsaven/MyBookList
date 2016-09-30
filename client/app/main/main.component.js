@@ -10,8 +10,32 @@ import routing from './main.routes';
 export class MainController {
   /*@ngInject*/
 
-  constructor($http) {
+  constructor($http, $scope) {
     this.$http = $http;
+
+    $scope.allBooks = function () {
+      $scope.selectedStatus = undefined;
+    };
+
+    $scope.reading = function () {
+      $scope.selectedStatus = 1;
+    };
+
+    $scope.completed = function () {
+      $scope.selectedStatus = 2;
+    };
+
+    $scope.onHold = function () {
+      $scope.selectedStatus = 3;
+    };
+
+    $scope.dropped = function () {
+      $scope.selectedStatus = 4;
+    };
+
+    $scope.planToWatch = function () {
+      $scope.selectedStatus = 5;
+    };
   }
 
   $onInit() {
@@ -22,7 +46,7 @@ export class MainController {
   }
 }
 
-MainController.$inject = ["$http"];
+MainController.$inject = ["$http", "$scope"];
 
 export default angular.module('myBookListApp.main', [uiRouter])
   .config(routing)

@@ -5,19 +5,21 @@
 export default function (sequelize, DataTypes) {
   const BookHasGenre = sequelize.define('BookHasGenre', {
       book_id: {
-        type: DataTypes.INTEGER,
-        primaryKey: true
+        allowNull: false,
+        primaryKey: true,
+        type: DataTypes.INTEGER
       },
       genre_id: {
-        type: DataTypes.INTEGER,
-        primaryKey: true
+        allowNull: false,
+        primaryKey: true,
+        type: DataTypes.INTEGER
       }
     },
     {
       classMethods: {
         associate: function (models) {
-          BookHasGenre.belongsTo(models.Book, { foreignKey: 'book_id' });
-          BookHasGenre.belongsTo(models.Genre, { foreignKey: 'genre_id' });
+          BookHasGenre.belongsTo(models.Book);
+          BookHasGenre.belongsTo(models.Genre);
         }
       },
       tableName: 'book_has_genre'

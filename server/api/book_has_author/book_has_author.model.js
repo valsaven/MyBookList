@@ -5,18 +5,20 @@
 export default function (sequelize, DataTypes) {
   const BookHasAuthor = sequelize.define('BookHasAuthor', {
     book_id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true
+      allowNull: false,
+      primaryKey: true,
+      type: DataTypes.INTEGER
     },
     author_id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true
+      allowNull: false,
+      primaryKey: true,
+      type: DataTypes.INTEGER
     }
   }, {
     classMethods: {
       associate: function (models) {
-        BookHasAuthor.belongsTo(models.Book, { foreignKey: 'book_id' });
-        BookHasAuthor.belongsTo(models.Author, { foreignKey: 'author_id' });
+        BookHasAuthor.belongsTo(models.Book);
+        BookHasAuthor.belongsTo(models.Author);
       }
     },
     tableName: 'book_has_author'

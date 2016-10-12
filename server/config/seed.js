@@ -12,7 +12,7 @@ const Status = db.Status;
 const Author = db.Author;
 const BookHasAuthor = db.BookHasAuthor;
 
-Status.sync()
+Status.sync({force: true})
   .then(() => Status.destroy({ where: {} }))
   .then(() => {
     Status.bulkCreate([
@@ -23,7 +23,7 @@ Status.sync()
       { name: 'Plan to Read' }]);
   });
 
-Author.sync()
+Author.sync({force: true})
   .then(() => Author.destroy({ where: {} }))
   .then(() => {
     Author.bulkCreate([
@@ -59,44 +59,111 @@ Author.sync()
         born: '1832-01-27',
         died: '1898-01-14',
         description: 'https://en.wikipedia.org/wiki/Lewis_Carroll'
+      },
+      {
+        firstName: 'Andrzej',
+        lastName: 'Sapkowski',
+        born: '1948-06-21',
+        description: 'https://en.wikipedia.org/wiki/Andrzej_Sapkowski'
+      },
+      {
+        firstName: 'Clive',
+        lastName: 'Lewis',
+        born: '1898-11-29',
+        died: '1963-11-22',
+        description: 'https://en.wikipedia.org/wiki/C._S._Lewis'
       }
     ]);
   });
 
-Book.sync()
+Book.sync({force: true})
   .then(() => Book.destroy({ where: {} }))
   .then(() => {
     Book.bulkCreate([
       {
         title: '1984',
         status: 2,
-        description: 'Written in 1948, 1984 was George Orwell’s chilling ' +
-        'prophecy about the future. And while 1984 has come and gone, ' +
-        'Orwell’s narrative is timelier than ever. 1984 presents a startling ' +
-        'and haunting vision of the world, so powerful that it is completely ' +
-        'convincing from start to finish. No one can deny the power of this ' +
-        'novel, its hold on the imaginations of multiple generations of ' +
-        'readers, or the resiliency of its admonitions — a legacy that ' +
-        'seems only to grow with the passage of time.',
-        created: '2016-05-30',
+        comment: 'Интересная книжка про политику. Надо бы к ней прочитать Прекрасный мир Хаксли',
+        created: '1949-06-08',
         currentPage: 304,
         totalPages: 304
       },
       {
         title: 'Alice\'s Adventures in Wonderland',
         status: 1,
-        description: 'Alice is sitting with her sister outdoors when she ' +
-        'spies a White Rabbit with a pocket watch.Fascinated by the sight, ' +
-        'she follows the rabbit down the hole. She falls for a long time, ' +
-        'and finds herself in a long hallway full of doors.',
-        created: '2016-01-07',
+        comment: 'Классика. Хорошо подходит для изучения английского.',
+        created: '1865-11-26',
         currentPage: 25,
         totalPages: 66
       },
+      {
+        title: 'Harry Potter and the Chamber of Secrets',
+        status: 2,
+        comment: 'Классика фэнтези',
+        created: '1997-06-26',
+        currentPage: 478,
+        totalPages: 478
+      },
+      {
+        title: 'Harry Potter and the Philosopher\'s Stone',
+        status: 2,
+        comment: 'Классика фэнтези 2',
+        created: '1998-07-02',
+        currentPage: 223,
+        totalPages: 223
+      },
+      {
+        title: 'Wiedźmin',
+        status: 1,
+        comment: 'Geralt of Rivia is a witcher.',
+        created: '2003-04-17',
+        currentPage: 100,
+        totalPages: 320
+      },
+      {
+        title: 'Harry Potter and the Prisoner of Azkaban',
+        status: 2,
+        comment: 'Классика фэнтези 3',
+        created: '1999-07-07',
+        currentPage: 350,
+        totalPages: 350
+      },
+      {
+        title: 'Harry Potter and the Order of the Phoenix',
+        status: 2,
+        comment: 'Классика фэнтези 5',
+        created: '2003-06-23',
+        currentPage: 570,
+        totalPages: 570
+      },
+      {
+        title: 'Harry Potter and the Half-Blood Prince',
+        status: 2,
+        comment: 'Классика фэнтези 6',
+        created: '2005-07-16',
+        currentPage: 470,
+        totalPages: 470
+      },
+      {
+        title: 'Harry Potter and the Deathly Hallows',
+        status: 2,
+        comment: 'Классика фэнтези 7',
+        created: '2007-07-21',
+        currentPage: 390,
+        totalPages: 390
+      },
+      {
+        title: 'The Chronicles of Narnia: The Lion, the Witch and the Wardrobe',
+        status: 1,
+        comment: 'Книжка с многослойным смыслом.',
+        created: '1950-10-16',
+        currentPage: 30,
+        totalPages: 430
+      }
     ]);
   });
 
-BookHasAuthor.sync()
+BookHasAuthor.sync({force: true})
   .then(() => BookHasAuthor.destroy({ where: {} }))
   .then(() => {
     BookHasAuthor.bulkCreate([
@@ -107,11 +174,43 @@ BookHasAuthor.sync()
       {
         book_id: 2,
         author_id: 5
+      },
+      {
+        book_id: 3,
+        author_id: 2
+      },
+      {
+        book_id: 4,
+        author_id: 2
+      },
+      {
+        book_id: 5,
+        author_id: 6
+      },
+      {
+        book_id: 7,
+        author_id: 2
+      },
+      {
+        book_id: 8,
+        author_id: 2
+      },
+      {
+        book_id: 9,
+        author_id: 2
+      },
+      {
+        book_id: 10,
+        author_id: 2
+      },
+      {
+        book_id: 11,
+        author_id: 7
       }
     ]);
   });
 
-Genre.sync()
+Genre.sync({force: true})
   .then(() => Genre.destroy({ where: {} }))
   .then(() => {
     Genre.bulkCreate([

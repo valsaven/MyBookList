@@ -26,5 +26,5 @@ module.exports = {
       omitNull: true
     }
   },
-  seedDB: false
+  seedDB: true
 };

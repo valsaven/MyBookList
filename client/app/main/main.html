@@ -6,55 +6,84 @@
   </div>
   <a href="/" class="header-title">MyBookList</a>
 </div>
-<div class="cover">
-  <h1>MyBookList</h1>
-  <img src="../../assets/images/booklet.png">
-  <p class="lead">HOW MUCH BOOKS HAVE YOU READ?</p>
-</div>
-<div class="status-menu">
-  <div class="status all-books hvr-underline-from-center" ng-class="{'active':selectedStatus === undefined}" ng-click="allBooks()">All Books</div>
-  <div class="status reading hvr-underline-from-center" ng-class="{'active':selectedStatus === 1}" ng-click="reading()">Currently Reading</div>
-  <div class="status completed hvr-underline-from-center" ng-class="{'active':selectedStatus === 2}" ng-click="completed()">Completed</div>
-  <div class="status on-hold hvr-underline-from-center" ng-class="{'active':selectedStatus === 3}" ng-click="onHold()">On Hold</div>
-  <div class="status dropped hvr-underline-from-center" ng-class="{'active':selectedStatus === 4}" ng-click="dropped()">Dropped</div>
-  <div class="status plan-to-watch hvr-underline-from-center" ng-class="{'active':selectedStatus === 5}" ng-click="planToWatch()">Plan to Read</div>
+
+<div class="side-menu">
 </div>
 
-<div class="list">
-  <table>
-    <tr class="table-header">
-      <th>#</th>
-      <th>Image</th>
-      <th>Title</th>
-      <th>Author</th>
-      <th>Genres</th>
-      <th>Comment</th>
-      <th>Created</th>
-      <th>Progress</th>
-      <th></th>
-    </tr>
-    <tr ng-repeat="book in $ctrl.books | filter: {status: selectedStatus}">
-      <td class="index">{{$index + 1}}</td>
-      <td></td>
-      <td class="title">{{book.title}}</td>
-      <td>{{book.author}}</td>
-      <td></td>
-      <td>{{book.comment}}</td>
-      <td>{{book.created}}</td>
-      <td>{{book.currentPage}} / {{book.totalPages}}</td>
-      <td>
-        <div class="edit-more-delete">
-          <span class="edit">
-            <a class="inList" href="#">Edit</a>
-          </span>
-          <span class="more">
-            <a class="inList" href="#">More</a>
-          </span>
-          <span class="delete">
-            <a class="inList" href="#">Delete</a>
-          </span>
-        </div>
-      </td>
-    </tr>
-  </table>
+<div class="list-container">
+  <div class="cover">
+    <h1>MyBookList</h1>
+    <img src="../../assets/images/booklet.png">
+    <p class="lead">HOW MUCH BOOKS HAVE YOU READ?</p>
+  </div>
+
+  <div class="status-menu">
+    <div class="status all-books" ng-class="{'active':selectedStatus === undefined}" ng-click="allBooks()">All Books</div>
+    <div class="status reading" ng-class="{'active':selectedStatus === 1}" ng-click="reading()">Currently Reading</div>
+    <div class="status completed" ng-class="{'active':selectedStatus === 2}" ng-click="completed()">Completed</div>
+    <div class="status on-hold" ng-class="{'active':selectedStatus === 3}" ng-click="onHold()">On Hold</div>
+    <div class="status dropped" ng-class="{'active':selectedStatus === 4}" ng-click="dropped()">Dropped</div>
+    <div class="status plan-to-watch" ng-class="{'active':selectedStatus === 5}" ng-click="planToWatch()">Plan to Read</div>
+  </div>
+
+  <div class="test">
+    <label for="title">Title</label>
+    <input id="title" ng-model="book.title">
+
+    <label for="status">Status</label>
+    <select id="status" ng-model="book.status" ng-options="item.name for item in statuses"></select>
+
+    <label for="comment">Comment</label>
+    <input id="comment" ng-model="book.comment">
+
+    <label for="created">Created</label>
+    <input id="created" ng-model="book.created">
+
+    <label for="currentPage">Current Page</label>
+    <input id="currentPage" ng-model="book.currentPage">
+
+    <label for="totalPages">Total Pages</label>
+    <input id="totalPages" ng-model="book.totalPages">
+
+    <button ng-click="addBook()">Add</button>
+  </div>
+
+  <div class="list">
+    <table>
+      <tr class="table-header">
+        <th>#</th>
+        <th>Image</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Genres</th>
+        <th>Comment</th>
+        <th>Created</th>
+        <th>Progress</th>
+        <th></th>
+      </tr>
+      <tr ng-repeat="book in $ctrl.books | filter: {status: selectedStatus}">
+        <td class="index">{{$index + 1}}</td>
+        <td></td>
+        <td class="title">{{book.title}}</td>
+        <td>{{book.author}}</td>
+        <td></td>
+        <td>{{book.comment}}</td>
+        <td>{{book.created}}</td>
+        <td>{{book.currentPage}} / {{book.totalPages}}</td>
+        <td>
+          <div class="edit-more-delete">
+            <span class="edit">
+              <a class="inList" href="#">Edit</a>
+            </span>
+            <span class="more">
+              <a class="inList" href="#">More</a>
+            </span>
+            <span class="delete">
+              <a class="inList" href="#" ng-click="deleteBook(book)">Delete</a>
+            </span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
 </div>

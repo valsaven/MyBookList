@@ -11,8 +11,12 @@ import routing from './main.routes';
 export class MainController {
   /*@ngInject*/
 
-  constructor($http, $scope) {
+  constructor($http, $scope, $state) {
     this.$http = $http;
+
+    $http.get('/api/statuses').then((req) => {
+      $scope.statuses = req.data;
+    });
 
     $scope.allBooks = function () {
       $scope.selectedStatus = undefined;
@@ -37,6 +41,33 @@ export class MainController {
     $scope.planToWatch = function () {
       $scope.selectedStatus = 5;
     };
+
+    $scope.addBook = function () {
+      if (this.book) {
+        let book = this.book;
+        let d = new Date();
+        let data = {
+          title: book.title,
+          status: book.status.id,
+          comment: book.comment,
+          created: d,
+          currentPage: book.currentPage,
+          totalPages: book.totalPages
+        };
+
+        $http.post('/api/books', data).then(() => {
+          console.log('Book has been successfully added.');
+        }, () => {
+          console.log("There was an error saving");
+        });
+      } else {
+        console.log('No book here');
+      }
+    };
+
+    $scope.deleteBook = function (book) {
+      $http.delete(`/api/books/${book._id}`);
+    };
   }
 
   $onInit() {
@@ -47,6 +78,10 @@ export class MainController {
           book.created = moment(book.created).format('LL');
         });
       });
+  }
+
+  updatebook() {
+
   }
 }
 

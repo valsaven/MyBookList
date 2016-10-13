@@ -10,8 +10,8 @@
     "start": "node server"
   },
   "engines": {
-    "node": "^6.5.0",
-    "npm": "^3.10.7"
+    "node": "^6.7.0",
+    "npm": "^3.10.9"
   },
   "private": true,
   "license": "GPL-3.0",
@@ -24,7 +24,6 @@
     "errorhandler": "^1.4.3",
     "express": "^4.14.0",
     "fast-json-patch": "^1.1.1",
-    "hover.css": "^2.0.2",
     "lodash": "^4.16.1",
     "moment": "^2.15.1",
     "mysql": "^2.11.1",

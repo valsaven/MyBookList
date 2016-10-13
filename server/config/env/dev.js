@@ -6,17 +6,10 @@
 
 module.exports = {
   sequelize: {
-    username: 'librarian',
-    database: 'mybooklist',
-    password: '123',
     options: {
       host: 'localhost',
-      dialect: 'mysql',
-      pool: {
-        max: 5,
-        min: 0,
-        idle: 10000
-      },
+      dialect: 'sqlite',
+      storage: './db.sqlite',
       logging: console.log,
       define: {
         freezeTableName: true,

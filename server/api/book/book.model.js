@@ -7,14 +7,10 @@ export default function (sequelize, DataTypes) {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      primaryKey: true,
-      autoIncrement: true
-    },
-    title: DataTypes.STRING,
-    status: {
-      type: DataTypes.INTEGER,
       primaryKey: true
     },
+    title: DataTypes.STRING,
+    status: DataTypes.INTEGER,
     comment: DataTypes.STRING,
     created: DataTypes.DATEONLY,
     currentPage: DataTypes.INTEGER,

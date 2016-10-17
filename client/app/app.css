@@ -2,14 +2,9 @@
  * Created by val on 9/24/16.
  */
 
-body {
-  font-family: Verdana, Arial, serif;
-  font-size: 12px;
-  margin: 0 0 0 0;
-  text-align: center;
-}
-
 /* inject:css */
-@import 'app.css';
+@import 'components/header/header.css';
+@import 'components/modal/modal.css';
+@import 'components/sidemenu/sidemenu.css';
 @import 'main/main.css';
 /* end inject */

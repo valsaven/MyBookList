@@ -96,7 +96,7 @@ gulp.task('inject', (cb) => {
 gulp.task('inject:css', () => {
   return gulp.src(paths.client.mainStyle)
     .pipe(plugins.inject(
-      gulp.src(_.union(paths.client.styles, [`! ${paths.client.mainStyle}`]),
+      gulp.src(_.union(paths.client.styles, [`!${paths.client.mainStyle}`]),
         { read: false })
         .pipe(plugins.sort()),
       {

@@ -7,6 +7,8 @@ import uiRouter from 'angular-ui-router';
 import moment from 'moment';
 
 import routing from './main.routes';
+import sidemenu from '../components/sidemenu/sidemenu.component';
+import statusmenu from '../components/statusmenu/statusmenu.component';
 
 export class MainController {
   /*@ngInject*/
@@ -83,7 +85,8 @@ export class MainController {
 
 MainController.$inject = ["$http", "$scope"];
 
-export default angular.module('myBookListApp.main', [uiRouter])
+export default angular.module('myBookListApp.main', [uiRouter, sidemenu,
+  statusmenu])
   .config(routing)
   .component('main', {
     template: require('./main.html'),

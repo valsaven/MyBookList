@@ -10,7 +10,7 @@ module.exports = {
       host: 'localhost',
       dialect: 'sqlite',
       storage: './db.sqlite',
-      logging: console.log,
+      logging: false,
       define: {
         freezeTableName: true,
         timestamps: false,

@@ -1,19 +1,8 @@
 <header></header>
-
 <sidemenu></sidemenu>
-
 <div class="list-container">
   <cover></cover>
-
-  <div class="status-menu">
-    <div class="status all-books" ng-class="{'active':selectedStatus === undefined}" ng-click="allBooks()">All Books</div>
-    <div class="status reading" ng-class="{'active':selectedStatus === 1}" ng-click="reading()">Currently Reading</div>
-    <div class="status completed" ng-class="{'active':selectedStatus === 2}" ng-click="completed()">Completed</div>
-    <div class="status on-hold" ng-class="{'active':selectedStatus === 3}" ng-click="onHold()">On Hold</div>
-    <div class="status dropped" ng-class="{'active':selectedStatus === 4}" ng-click="dropped()">Dropped</div>
-    <div class="status plan-to-watch" ng-class="{'active':selectedStatus === 5}" ng-click="planToWatch()">Plan to Read</div>
-  </div>
-
+  <statusmenu></statusmenu>
   <div class="test">
     <label for="title">Title</label>
     <input id="title" ng-model="book.title">
@@ -35,7 +24,6 @@
 
     <button ng-click="addBook()">Add</button>
   </div>
-
   <div class="list">
     <table>
       <tr class="table-header">

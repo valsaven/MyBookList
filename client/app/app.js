@@ -12,9 +12,11 @@ import main from './main/main.component';
 import cover from './components/cover/cover.component';
 import header from './components/header/header.component';
 import sidemenu from './components/sidemenu/sidemenu.component';
+import statusmenu from './components/statusmenu/statusmenu.component';
 import './app.css';
 
-angular.module('myBookListApp', [uiRouter, main, cover, header, sidemenu])
+angular.module('myBookListApp', [uiRouter, main, cover, header, sidemenu,
+  statusmenu])
   .config(routeConfig);
 
 angular.element(document)

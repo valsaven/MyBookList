@@ -1,0 +1,26 @@
+/**
+ * Created by val on 10/18/16.
+ */
+
+/* Status menu */
+.status-menu {
+  align-items: center;
+  border: 8px solid white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 0 10% 0 10%;
+}
+
+.status {
+  color: #ADADAD;
+  cursor: pointer;
+  font-size: large;
+  font-weight: 400;
+  padding-bottom: 10px;
+}
+
+.active {
+  color: #787878;
+  font-weight: bold;
+}

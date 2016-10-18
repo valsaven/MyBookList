@@ -1,0 +1,6 @@
+{
+  "name": "MyBookList",
+  "tagline": "Database of books in Node.js",
+  "body": "![mybooklist](https://cdn.rawgit.com/valsaven/mybooklist/master/logo.svg)\r\n\r\n# MyBookList\r\n\r\nA project for work with a collection of books.\r\n\r\n## How to run\r\n\r\n1. Clone the code repository.\r\n2. Open terminal to code repository.\r\n4. Run `gulp serve` to work with the application.\r\n\r\n## Authors\r\n\r\n* Val Saven &lt;val.saven@gmail.com&gt;\r\n* Jil Saven &lt;jil.saven@gmail.com&gt;\r\n\r\n## License\r\n\r\nGNU GPL v3 - see [LICENSE](LICENSE)\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}

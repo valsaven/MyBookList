@@ -17,6 +17,7 @@ a {
 }
 
 /* inject:css */
+@import 'components/cover/cover.css';
 @import 'components/header/header.css';
 @import 'components/modal/modal.css';
 @import 'components/sidemenu/sidemenu.css';

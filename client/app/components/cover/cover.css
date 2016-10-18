@@ -1,0 +1,17 @@
+/**
+ * Created by val on 10/18/16.
+ */
+
+/* Cover */
+.cover {
+  align-items: center;
+  background-color: #4393b9;
+  border: 8px solid white;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  font-size: 120%;
+  font-weight: 600;
+  justify-content: center;
+  margin: 0 10% 0 10%;
+}

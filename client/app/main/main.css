@@ -2,20 +2,6 @@
  * Created by val on 9/25/16.
  */
 
-/* General Styles */
-body {
-  background: url("../../assets/images/bg.png") repeat-x fixed center top;
-  font-family: Verdana, Arial, serif;
-  font-size: 12px;
-  margin: 0 0 0 0;
-  text-align: center;
-}
-
-a {
-  color: #1d439b;
-  text-decoration: none;
-}
-
 /* Cover */
 .cover {
   align-items: center;

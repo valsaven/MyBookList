@@ -2,31 +2,64 @@
  * Created by val on 9/25/16.
  */
 
+/* General Styles */
+body {
+  background: url("../../assets/images/bg.png") repeat-x fixed center top;
+  font-family: Verdana, Arial, serif;
+  font-size: 12px;
+  margin: 0 0 0 0;
+  text-align: center;
+}
+
+a {
+  color: #1d439b;
+  text-decoration: none;
+}
+
 /* Header */
-.header {
-  background-color: #4393B9;
+.header a {
   color: #fff;
+  font-weight: bold;
+}
+
+.header a:hover {
+  text-decoration: underline;
+}
+
+.header {
+  color: white;
+  display: block;
   height: 80px;
+  margin: 0 10% 0 10%;
   position: relative;
+}
+
+.header .header-title {
+  background-size: auto 36px;
+  background: url("../../assets/images/logo_head.png") no-repeat left top;
+  display: block;
+  height: 84px;
+  overflow: hidden;
+  position: absolute;
+  text-indent: -9999px;
+  top: 21px;
+  width: 498px;
+}
+
+.header .header-menu {
+  position: absolute;
+  right: 4px;
+  top: 25px;
 }
 
 .header .header-menu .btn-menu {
   display: block;
   font-size: 16px;
-  text-align: center;
+  text-align: right;
 }
 
 .header .username {
   font-weight: bold;
-}
-
-.header .header-title {
-  background-size: auto 36px;
-  background: url('../../assets/images/logo_head.png') no-repeat;
-  display: block;
-  height: 36px;
-  top: 21px;
-  width: 240px;
 }
 
 /* Sidemenu */
@@ -77,7 +110,7 @@
 }
 
 .side-menu .menu-item:hover {
-  background-color: #4393B9;
+  background-color: #48a3c8;
   color: white;
   cursor: auto;
   display: block;

@@ -79,10 +79,6 @@ export class MainController {
         });
       });
   }
-
-  updatebook() {
-
-  }
 }
 
 MainController.$inject = ["$http", "$scope"];

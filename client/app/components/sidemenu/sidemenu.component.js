@@ -4,11 +4,11 @@
 
 import angular from 'angular';
 
-export class SidemenuComponent {}
+export class SideMenuComponent {}
 
 export default angular.module('directives.sidemenu', [])
   .component('sidemenu', {
     template: require('./sidemenu.html'),
-    controller: SidemenuComponent
+    controller: SideMenuComponent
   })
   .name;

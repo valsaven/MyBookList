@@ -16,52 +16,6 @@ a {
   text-decoration: none;
 }
 
-/* Header */
-.header a {
-  color: #fff;
-  font-weight: bold;
-}
-
-.header a:hover {
-  text-decoration: underline;
-}
-
-.header {
-  color: white;
-  display: block;
-  height: 80px;
-  margin: 0 10% 0 10%;
-  position: relative;
-}
-
-.header .header-title {
-  background-size: auto 36px;
-  background: url("../../assets/images/logo_head.png") no-repeat left top;
-  display: block;
-  height: 84px;
-  overflow: hidden;
-  position: absolute;
-  text-indent: -9999px;
-  top: 21px;
-  width: 498px;
-}
-
-.header .header-menu {
-  position: absolute;
-  right: 4px;
-  top: 25px;
-}
-
-.header .header-menu .btn-menu {
-  display: block;
-  font-size: 16px;
-  text-align: right;
-}
-
-.header .username {
-  font-weight: bold;
-}
-
 /* Cover */
 .cover {
   align-items: center;

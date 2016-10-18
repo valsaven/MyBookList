@@ -13,12 +13,13 @@ const autoprefixer = require('autoprefixer');
 const CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
 
 
-let config = {};
+const config = {};
 
 config.entry = {
   app: './client/app/app.js',
   vendor: [
     'angular',
+    'angular-ui-router',
     'lodash'
   ]
 };
@@ -39,17 +40,17 @@ config.babel = {
 };
 
 config.module = {
-  preLoaders: [],
-  loaders: [{
-    test: /\.js$/,
-    loader: 'babel',
-    include: [
-      path.resolve(__dirname, 'client/'),
-      path.resolve(__dirname, 'node_modules/lodash-es/')
-    ]
-  },
+  loaders: [
     {
-      test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)([\?]?.*)$/,
+      test: /\.js$/,
+      loader: 'babel',
+      include: [
+        path.resolve(__dirname, 'client/'),
+        path.resolve(__dirname, 'node_modules/lodash-es/')
+      ]
+    },
+    {
+      test: /\.(png|jpg|jpeg|gif|svg)([\?]?.*)$/,
       loader: 'file'
     },
     {
@@ -104,6 +105,8 @@ config.plugins.push(
     }
   })
 );
+
+config.cache = false;
 
 config.devServer = {
   contentBase: './client/',

@@ -23,9 +23,9 @@ const paths = {
     assets: `${clientPath}/assets/**/*`,
     images: `${clientPath}/assets/images/**/*`,
     scripts: [`${clientPath}/**/*.js`],
-    styles: [`${clientPath}/app/**/*.css`],
+    styles: [`${clientPath}/{app,components}/**/*.css`],
     mainStyle: `${clientPath}/app/app.css`,
-    views: `${clientPath}/app/**/*.html`,
+    views: `${clientPath}/{app,components}/**/*.html`,
     mainView: `${clientPath}/index.html`
   },
   server: {
@@ -77,7 +77,7 @@ gulp.task('env:all', () => {
   let localConfig;
 
   try {
-    localConfig = require(`./${serverPath}/config/local.env`);
+    localConfig = { DOMAIN: 'http://localhost:9000' };
   } catch (e) {
     localConfig = {};
   }
@@ -86,11 +86,6 @@ gulp.task('env:all', () => {
 
 // clean:tmp
 gulp.task('clean:tmp', () => del(['.tmp/**/*'], { dot: true }));
-
-// inject
-gulp.task('inject', (cb) => {
-  runSequence(['inject:css'], cb);
-});
 
 // inject:css
 gulp.task('inject:css', () => {
@@ -105,6 +100,7 @@ gulp.task('inject:css', () => {
         transform: (filepath) => {
           const newPath = filepath
             .replace(`/${clientPath}/app/`, '')
+            .replace(`/${clientPath}/components/`, '../components/')
             .replace(/_(.*).css/, (match, p1, offset, string) => p1);
           return `@import '${newPath}';`;
         }
@@ -136,6 +132,6 @@ gulp.task('watch', () => {
 
 // serve
 gulp.task('serve', (cb) => {
-  runSequence(['clean:tmp', 'inject', 'env:all'],
+  runSequence(['clean:tmp', 'inject:css', 'env:all'],
     ['start:server', 'start:client'], 'watch', cb);
 });

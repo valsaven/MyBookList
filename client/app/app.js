@@ -9,9 +9,10 @@ import uiRouter from 'angular-ui-router';
 
 import { routeConfig } from './app.config';
 import main from './main/main.component';
+import sidemenu from './components/sidemenu/sidemenu.component';
 import './app.css';
 
-angular.module('myBookListApp', [uiRouter, main])
+angular.module('myBookListApp', [uiRouter, main, sidemenu])
   .config(routeConfig);
 
 angular.element(document)

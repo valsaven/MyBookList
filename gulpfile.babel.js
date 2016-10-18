@@ -74,13 +74,7 @@ function whenServerReady(cb) {
 
 // env:all
 gulp.task('env:all', () => {
-  let localConfig;
-
-  try {
-    localConfig = { DOMAIN: 'http://localhost:9000' };
-  } catch (e) {
-    localConfig = {};
-  }
+  let localConfig = { DOMAIN: 'http://localhost:9000' };
   plugins.env({ vars: localConfig });
 });
 

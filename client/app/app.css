@@ -4,7 +4,7 @@
 
 /* General Styles */
 body {
-  background: url("../assets/images/bg.png") repeat-x fixed center top;
+  background-color: #64a9f1;
   font-family: Verdana, Arial, serif;
   font-size: 12px;
   margin: 0 0 0 0;

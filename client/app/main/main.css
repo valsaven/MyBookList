@@ -4,29 +4,60 @@
 
 /* List settings */
 .list {
-  border: 8px solid white;
   display: flex;
   margin: 0 10% 0 10%;
   overflow-x: auto;
 }
 
 table {
+  background: white;
   border-collapse: collapse;
-  width: 100%;
+  border-radius: 3px;
 }
 
-table, th, td {
-  border: 1px solid black;
+tr {
+  border-bottom: 1px solid #C1C3D1;
+  border-top: 1px solid #C1C3D1;
+  font-size: 16px;
+  font-weight: normal;
+  text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
 }
 
 tr.table-header {
-  font-size: 11px;
+  background: #2980b9;
+  color: #ffffff;
+  font-weight: 900;
 }
 
-th, td {
-  /*padding: 5px;*/
+th {
+  background: #076AD0;
+  border-bottom: 4px solid #91c2f5;
+  border-right: 1px solid white;
+  color: white;
+  font-size: 23px;
+  font-weight: 100;
+  padding: 12px;
+  vertical-align: middle;
 }
 
+th:first-child {
+  border-top-left-radius: 3px;
+}
+
+th:last-child {
+  border-right: none;
+  border-top-right-radius: 3px;
+}
+
+tr:first-child {
+  border-top: none;
+}
+
+tr:last-child {
+  border-bottom: none;
+}
+
+/* List element */
 td {
   color: #1d439b;
 }
@@ -38,8 +69,4 @@ td.index {
 td.title {
   font-size: 1.1em;
   font-weight: bold;
-}
-
-tr:nth-child(even) {
-  background: #ededed;
 }

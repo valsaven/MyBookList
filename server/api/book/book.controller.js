@@ -91,7 +91,9 @@ export function show(req, res) {
 }
 
 // Create a new Book in the DB
+// TODO: Remove console.log
 export function create(req, res) {
+  console.log(req.body);
   return Book.create(req.body)
     .then(respondWithResult(res, 201))
     .catch(handleError(res));

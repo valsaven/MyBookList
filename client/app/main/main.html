@@ -3,27 +3,6 @@
 <div class="list-container">
   <cover></cover>
   <statusmenu></statusmenu>
-  <div class="test">
-    <label for="title">Title</label>
-    <input id="title" ng-model="book.title">
-
-    <label for="status">Status</label>
-    <select id="status" ng-model="book.status" ng-options="item.name for item in statuses"></select>
-
-    <label for="comment">Comment</label>
-    <input id="comment" ng-model="book.comment">
-
-    <label for="created">Created</label>
-    <input id="created" ng-model="book.created">
-
-    <label for="currentPage">Current Page</label>
-    <input id="currentPage" ng-model="book.currentPage">
-
-    <label for="totalPages">Total Pages</label>
-    <input id="totalPages" ng-model="book.totalPages">
-
-    <button ng-click="addBook()">Add</button>
-  </div>
   <div class="list">
     <table>
       <tr class="table-header">

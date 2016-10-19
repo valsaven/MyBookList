@@ -20,30 +20,6 @@ export class MainController {
       $scope.statuses = req.data;
     });
 
-    $scope.allBooks = function () {
-      $scope.selectedStatus = undefined;
-    };
-
-    $scope.reading = function () {
-      $scope.selectedStatus = 1;
-    };
-
-    $scope.completed = function () {
-      $scope.selectedStatus = 2;
-    };
-
-    $scope.onHold = function () {
-      $scope.selectedStatus = 3;
-    };
-
-    $scope.dropped = function () {
-      $scope.selectedStatus = 4;
-    };
-
-    $scope.planToWatch = function () {
-      $scope.selectedStatus = 5;
-    };
-
     $scope.addBook = function () {
       if (this.book) {
         let book = this.book;
@@ -57,11 +33,14 @@ export class MainController {
           totalPages: book.totalPages
         };
 
-        $http.post('/api/books', data).then(() => {
-          console.log('Book has been successfully added.');
-        }, (error) => {
-          console.log(`There was an error saving. ${error}`);
-        });
+        // TODO: Remove console.log
+        $http.post('/api/books', JSON.stringify(data))
+          .then((req) => {
+            console.log(req.data);
+            console.log('Book has been successfully added.');
+          }, (error) => {
+            console.log(`There was an error saving. ${error}`);
+          });
       } else {
         console.log('No book here');
       }

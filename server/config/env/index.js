@@ -8,7 +8,7 @@ import path from 'path';
 import _ from 'lodash';
 
 const all = {
-  env: process.env.NODE_ENV,
+  env: process.env.NODE_ENV || 'dev',
 
   // Root path of the server
   root: path.normalize(`${__dirname}/../../..`),

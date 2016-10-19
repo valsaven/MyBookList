@@ -59,8 +59,8 @@ export class MainController {
 
         $http.post('/api/books', data).then(() => {
           console.log('Book has been successfully added.');
-        }, () => {
-          console.log("There was an error saving");
+        }, (error) => {
+          console.log(`There was an error saving. ${error}`);
         });
       } else {
         console.log('No book here');

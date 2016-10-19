@@ -7,6 +7,7 @@ export default function (sequelize, DataTypes) {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      autoIncrement: true,
       primaryKey: true
     },
     firstName: DataTypes.STRING,

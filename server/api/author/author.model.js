@@ -19,7 +19,7 @@ export default function (sequelize, DataTypes) {
     classMethods: {
       associate: function (models) {
         Author.belongsToMany(models.Book, {
-          through: models.BookHasAuthor
+          through: models.BookHasAuthor,
           foreignKey: 'author_id',
           constraints: true
         });

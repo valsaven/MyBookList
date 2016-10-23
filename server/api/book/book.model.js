@@ -21,6 +21,9 @@ export default function (sequelize, DataTypes) {
       associate: function (models) {
         Book.belongsToMany(models.Author, {
           through: models.BookHasAuthor
+          foreignKey: 'book_id',
+          as: 'authors'
+          constraints: true
         });
       }
     },

@@ -7,10 +7,9 @@
 module.exports = {
   sequelize: {
     options: {
-      host: 'localhost',
       dialect: 'sqlite',
       storage: './db.sqlite',
-      logging: false,
+      logging: true,
       define: {
         freezeTableName: true,
         timestamps: false,
@@ -18,6 +17,5 @@ module.exports = {
       },
       omitNull: true
     }
-  },
-  seedDB: true
+  }
 };

@@ -20,6 +20,8 @@ export default function (sequelize, DataTypes) {
       associate: function (models) {
         Author.belongsToMany(models.Book, {
           through: models.BookHasAuthor
+          foreignKey: 'author_id',
+          constraints: true
         });
       }
     },

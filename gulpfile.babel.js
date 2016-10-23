@@ -79,7 +79,7 @@ gulp.task('env:all', () => {
 });
 
 // clean:tmp
-gulp.task('clean:tmp', () => del(['.tmp/**/*'], { dot: true }));
+gulp.task('clean:tmp', () => del(['.tmp/**/*', 'db.sqlite'], { dot: true }));
 
 // inject:css
 gulp.task('inject:css', () => {
@@ -128,4 +128,9 @@ gulp.task('watch', () => {
 gulp.task('serve', (cb) => {
   runSequence(['clean:tmp', 'inject:css', 'env:all'],
     ['start:server', 'start:client'], 'watch', cb);
+});
+
+// build
+gulp.task('build', (cb) => {
+
 });

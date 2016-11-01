@@ -21,15 +21,15 @@
 }
 
 .header .header-title {
+  background: url('../img/logo_head.png') no-repeat left top;
   background-size: auto 36px;
-  background: url("../img/logo_head.png") no-repeat left top;
   display: block;
-  height: 84px;
+  height: 36px;
   overflow: hidden;
   position: absolute;
   text-indent: -9999px;
   top: 21px;
-  width: 498px;
+  width: 240px;
 }
 
 .header .header-menu {

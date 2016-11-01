@@ -9,13 +9,13 @@ import uiRouter from 'angular-ui-router';
 
 import { routeConfig } from './app.config';
 
-import main from './components/main/mainController';
+import book from './components/book/bookController';
 import cover from './components/cover/coverDirective';
 import header from './components/header/headerDirective';
 
 import '../app.css';
 
-angular.module('myBookListApp', [uiRouter, main, cover, header])
+angular.module('myBookListApp', [uiRouter, book, cover, header])
   .config(routeConfig);
 
 angular.element(document)

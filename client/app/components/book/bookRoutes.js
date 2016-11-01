@@ -7,8 +7,8 @@
 export default function routes($stateProvider) {
   'ngInject';
 
-  $stateProvider.state('main', {
+  $stateProvider.state('book', {
     url: '/',
-    template: '<main></main>'
+    template: '<book-list></book-list>'
   });
 }

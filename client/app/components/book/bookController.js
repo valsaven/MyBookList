@@ -6,11 +6,11 @@ import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import moment from 'moment';
 
-import routing from './mainRoutes';
+import routing from './bookRoutes';
 import sidemenu from '../../components/sidemenu/sidemenuDirective';
 import statusmenu from '../../components/statusmenu/statusmenuDirective';
 
-export class MainController {
+export class BookController {
   /*@ngInject*/
 
   constructor($http, $scope, $state) {
@@ -64,13 +64,13 @@ export class MainController {
   }
 }
 
-MainController.$inject = ["$http", "$scope"];
+BookController.$inject = ["$http", "$scope"];
 
-export default angular.module('myBookListApp.main', [uiRouter, sidemenu,
+export default angular.module('myBookListApp.book', [uiRouter, sidemenu,
   statusmenu])
   .config(routing)
-  .component('main', {
-    template: require('./main.html'),
-    controller: MainController
+  .component('book', {
+    template: require('./book.html'),
+    controller: BookController
   })
   .name;

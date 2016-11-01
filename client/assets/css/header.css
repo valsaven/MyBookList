@@ -22,7 +22,7 @@
 
 .header .header-title {
   background-size: auto 36px;
-  background: url("../../assets/images/logo_head.png") no-repeat left top;
+  background: url("../img/logo_head.png") no-repeat left top;
   display: block;
   height: 84px;
   overflow: hidden;

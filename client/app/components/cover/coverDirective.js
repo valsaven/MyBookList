@@ -8,7 +8,7 @@ export class CoverComponent {}
 
 export default angular.module('directives.cover', [])
   .component('cover', {
-    template: require('./cover.html'),
+    template: require('./coverView.html'),
     controller: CoverComponent
   })
   .name;

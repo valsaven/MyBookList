@@ -21,11 +21,11 @@ const serverPath = 'server';
 const paths = {
   client: {
     assets: `${clientPath}/assets/**/*`,
-    images: `${clientPath}/assets/images/**/*`,
-    scripts: [`${clientPath}/**/*.js`],
-    styles: [`${clientPath}/{app,components}/**/*.css`],
-    mainStyle: `${clientPath}/app/app.css`,
-    views: `${clientPath}/{app,components}/**/*.html`,
+    images: `${clientPath}/assets/img/*`,
+    scripts: [`${clientPath}/app/**/*.js`],
+    styles: [`${clientPath}/assets/css/*.css`],
+    mainStyle: `${clientPath}/app.css`,
+    views: `${clientPath}/app/components/**/*.html`,
     mainView: `${clientPath}/index.html`
   },
   server: {
@@ -90,17 +90,16 @@ gulp.task('inject:css', () => {
         .pipe(plugins.sort()),
       {
         starttag: '/* inject:css */',
-        endtag: '/* end inject */',
+        endtag: '/* endinject */',
         transform: (filepath) => {
           const newPath = filepath
-            .replace(`/${clientPath}/app/`, '')
-            .replace(`/${clientPath}/components/`, '../components/')
+            .replace(`/${clientPath}/assets/css/`, '/assets/css/')
             .replace(/_(.*).css/, (match, p1, offset, string) => p1);
           return `@import '${newPath}';`;
         }
       }
     ))
-    .pipe(gulp.dest(`${clientPath}/app`));
+    .pipe(gulp.dest(`${clientPath}/`));
 });
 
 // start:client

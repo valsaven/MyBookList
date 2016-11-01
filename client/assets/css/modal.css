@@ -1,0 +1,9 @@
+/**
+ * Created by val on 10/17/16.
+ */
+
+.quick-add {
+  display: flex;
+  margin: 0 10% 0 10%;
+  overflow-x: auto;
+}

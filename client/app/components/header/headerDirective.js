@@ -8,7 +8,7 @@ export class HeaderComponent {}
 
 export default angular.module('directives.header', [])
   .component('header', {
-    template: require('./header.html'),
+    template: require('./headerView.html'),
     controller: HeaderComponent
   })
   .name;

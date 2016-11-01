@@ -6,9 +6,9 @@ import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import moment from 'moment';
 
-import routing from './main.routes';
-import sidemenu from '../../components/sidemenu/sidemenu.component';
-import statusmenu from '../../components/statusmenu/statusmenu.component';
+import routing from './mainRoutes';
+import sidemenu from '../../components/sidemenu/sidemenuDirective';
+import statusmenu from '../../components/statusmenu/statusmenuDirective';
 
 export class MainController {
   /*@ngInject*/
@@ -55,6 +55,8 @@ export class MainController {
     this.$http.get('/api/books')
       .then((res) => {
         this.books = res.data;
+        // TODO: Remove console.log
+        console.log(this.books);
         this.books.forEach(function (book) {
           book.created = moment(book.created).format('LL');
         });

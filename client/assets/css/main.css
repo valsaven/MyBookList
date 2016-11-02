@@ -13,6 +13,7 @@ table {
   background: white;
   border-collapse: collapse;
   border-radius: 3px;
+  width: 100%;
 }
 
 tr {
@@ -31,7 +32,8 @@ tr.table-header {
 
 th {
   background: #076AD0;
-  border-bottom: 4px solid #91c2f5;
+  /*TODO: Remove if the table is empty*/
+  /*border-bottom: 4px solid #91c2f5;*/
   border-right: 1px solid white;
   color: white;
   font-size: 23px;

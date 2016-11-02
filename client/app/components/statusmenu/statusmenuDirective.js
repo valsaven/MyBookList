@@ -9,7 +9,6 @@ export class StatusMenuComponent {
   constructor($rootScope, $scope) {
 
     $scope.selectStatus = function (statusId) {
-      console.log(statusId);
       return statusId
         ? $rootScope.selectedStatus = statusId
         : $rootScope.selectedStatus = undefined;

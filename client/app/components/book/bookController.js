@@ -58,10 +58,9 @@ export class BookController {
 
     $scope.deleteBook = function (book) {
       let bookId = book.id;
-
       $http.delete(`/api/books/${bookId}`).then(() => {
         getBooks();
-      })
+      });
     };
   }
 }

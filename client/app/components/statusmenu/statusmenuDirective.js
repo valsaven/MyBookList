@@ -6,38 +6,18 @@ import angular from 'angular';
 
 export class StatusMenuComponent {
   /*@ngInject*/
-  constructor($scope) {
-    // $scope.selectStatus = function (code) {
-    //   return console.log(code);
-    // };
+  constructor($rootScope, $scope) {
 
-    $scope.allBooks = function () {
-      $scope.selectedStatus = undefined;
-    };
-
-    $scope.reading = function () {
-      $scope.selectedStatus = 1;
-    };
-
-    $scope.completed = function () {
-      $scope.selectedStatus = 2;
-    };
-
-    $scope.onHold = function () {
-      $scope.selectedStatus = 3;
-    };
-
-    $scope.dropped = function () {
-      $scope.selectedStatus = 4;
-    };
-
-    $scope.planToWatch = function () {
-      $scope.selectedStatus = 5;
+    $scope.selectStatus = function (statusId) {
+      console.log(statusId);
+      return statusId
+        ? $rootScope.selectedStatus = statusId
+        : $rootScope.selectedStatus = undefined;
     };
   }
 }
 
-StatusMenuComponent.$inject = ["$scope"];
+StatusMenuComponent.$inject = ['$rootScope', '$scope'];
 
 export default angular.module('directives.statusmenu', [])
   .component('statusmenu', {

@@ -12,12 +12,24 @@ import statusmenu from '../../components/statusmenu/statusmenuDirective';
 export class BookController {
   /*@ngInject*/
 
-  constructor($http, $scope, $state) {
-    this.$http = $http;
+  constructor($rootScope, $scope, $http) {
 
-    $http.get('/api/statuses').then((req) => {
-      $scope.statuses = req.data;
-    });
+    function getStatuses() {
+      $http.get('/api/statuses').then((req) => {
+        $scope.statuses = req.data;
+      });
+    }
+
+    function getBooks() {
+      $http.get('/api/books').then((res) => {
+        $scope.books = res.data;
+        console.log($scope.books);
+      });
+    }
+
+    getStatuses();
+
+    getBooks();
 
     $scope.addBook = function () {
       if (this.book) {
@@ -45,24 +57,16 @@ export class BookController {
     };
 
     $scope.deleteBook = function (book) {
-      $http.delete(`/api/books/${book._id}`);
-    };
-  }
+      let bookId = book.id;
 
-  $onInit() {
-    this.$http.get('/api/books')
-      .then((res) => {
-        this.books = res.data;
-        // TODO: Remove console.log
-        console.log(this.books);
-        this.books.forEach(function (book) {
-          book.created = moment(book.created).format('LL');
-        });
-      });
+      $http.delete(`/api/books/${bookId}`).then(() => {
+        getBooks();
+      })
+    };
   }
 }
 
-BookController.$inject = ["$http", "$scope"];
+BookController.$inject = ['$rootScope', '$scope', '$http'];
 
 export default angular.module('myBookListApp.book', [uiRouter, sidemenu,
   statusmenu])

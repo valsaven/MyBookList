@@ -9,6 +9,6 @@ export default function routes($stateProvider) {
 
   $stateProvider.state('book', {
     url: '/',
-    template: '<book-list></book-list>'
+    template: '<book></book>'
   });
 }

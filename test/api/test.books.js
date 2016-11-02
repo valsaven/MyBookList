@@ -31,6 +31,7 @@ describe('Books', () => {
           res.body.id.should.be.eql(1);
           res.body.title.should.be.eql('1984');
           res.body.totalPages.should.be.eql(304);
+          done();
         })
     })
   });
@@ -47,6 +48,7 @@ describe('Books', () => {
           res.body.title.should.be.eql('The Chronicles of Narnia: ' +
             'The Lion, the Witch and the Wardrobe');
           res.body.totalPages.should.be.eql(430);
+          done();
         })
     })
   });

@@ -13,7 +13,7 @@ export default function (sequelize, DataTypes) {
     title: DataTypes.STRING,
     status: DataTypes.INTEGER,
     comment: DataTypes.STRING,
-    created: DataTypes.DATEONLY,
+    year: DataTypes.INTEGER,
     currentPage: DataTypes.INTEGER,
     totalPages: DataTypes.INTEGER
   }, {

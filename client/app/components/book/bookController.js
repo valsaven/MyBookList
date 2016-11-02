@@ -4,7 +4,6 @@
 
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
-import moment from 'moment';
 
 import routing from './bookRoutes';
 import sidemenu from '../../components/sidemenu/sidemenuDirective';
@@ -23,12 +22,11 @@ export class BookController {
     $scope.addBook = function () {
       if (this.book) {
         let book = this.book;
-        let d = new Date();
         let data = {
           title: book.title,
           status: book.status.id,
           comment: book.comment,
-          created: d,
+          year: book.year,
           currentPage: book.currentPage,
           totalPages: book.totalPages
         };

@@ -4,12 +4,12 @@
       <tr class="table-header">
         <th>#</th>
         <th>Image</th>
-        <th>Title</th>
-        <th>Author</th>
+        <th ng-click="sortBy('title')">Title</th>
+        <th ng-click="sortBy('author')">Author</th>
         <th>Genres</th>
-        <th>Comment</th>
-        <th>Created</th>
-        <th>Progress</th>
+        <th ng-click="sortBy('comment')">Comment</th>
+        <th ng-click="sortBy('year')">Year</th>
+        <th ng-click="sortBy('progress')">Progress</th>
         <th></th>
       </tr>
       <tr ng-repeat="book in $ctrl.books | filter: {status: selectedStatus}">
@@ -21,7 +21,7 @@
         </td>
         <td></td>
         <td>{{book.comment}}</td>
-        <td>{{book.created}}</td>
+        <td>{{book.year}}</td>
         <td>{{book.currentPage}} / {{book.totalPages}}</td>
         <td>
           <div class="edit-more-delete">

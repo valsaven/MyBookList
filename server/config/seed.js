@@ -84,7 +84,7 @@ Book.sync({force: true})
         title: '1984',
         status: 2,
         comment: 'Интересная книжка про политику. Надо бы к ней прочитать Прекрасный мир Хаксли',
-        created: '1949-06-08',
+        year: 1949,
         currentPage: 304,
         totalPages: 304
       },
@@ -92,7 +92,7 @@ Book.sync({force: true})
         title: 'Alice\'s Adventures in Wonderland',
         status: 1,
         comment: 'Классика. Хорошо подходит для изучения английского.',
-        created: '1865-11-26',
+        year: 1865,
         currentPage: 25,
         totalPages: 66
       },
@@ -100,7 +100,7 @@ Book.sync({force: true})
         title: 'Harry Potter and the Chamber of Secrets',
         status: 2,
         comment: 'Классика фэнтези',
-        created: '1997-06-26',
+        year: 1997,
         currentPage: 478,
         totalPages: 478
       },
@@ -108,7 +108,7 @@ Book.sync({force: true})
         title: 'Harry Potter and the Philosopher\'s Stone',
         status: 2,
         comment: 'Классика фэнтези 2',
-        created: '1998-07-02',
+        year: 1998,
         currentPage: 223,
         totalPages: 223
       },
@@ -116,7 +116,7 @@ Book.sync({force: true})
         title: 'Wiedźmin',
         status: 1,
         comment: 'Geralt of Rivia is a witcher.',
-        created: '2003-04-17',
+        year: 2003,
         currentPage: 100,
         totalPages: 320
       },
@@ -124,7 +124,7 @@ Book.sync({force: true})
         title: 'Harry Potter and the Prisoner of Azkaban',
         status: 2,
         comment: 'Классика фэнтези 3',
-        created: '1999-07-07',
+        year: 1999,
         currentPage: 350,
         totalPages: 350
       },
@@ -132,7 +132,7 @@ Book.sync({force: true})
         title: 'Harry Potter and the Order of the Phoenix',
         status: 2,
         comment: 'Классика фэнтези 5',
-        created: '2003-06-23',
+        year: 2003,
         currentPage: 570,
         totalPages: 570
       },
@@ -140,7 +140,7 @@ Book.sync({force: true})
         title: 'Harry Potter and the Half-Blood Prince',
         status: 2,
         comment: 'Классика фэнтези 6',
-        created: '2005-07-16',
+        year: 2005,
         currentPage: 470,
         totalPages: 470
       },
@@ -148,7 +148,7 @@ Book.sync({force: true})
         title: 'Harry Potter and the Deathly Hallows',
         status: 2,
         comment: 'Классика фэнтези 7',
-        created: '2007-07-21',
+        year: 2007,
         currentPage: 390,
         totalPages: 390
       },
@@ -156,7 +156,7 @@ Book.sync({force: true})
         title: 'The Chronicles of Narnia: The Lion, the Witch and the Wardrobe',
         status: 1,
         comment: 'Книжка с многослойным смыслом.',
-        created: '1950-10-16',
+        year: 1950,
         currentPage: 30,
         totalPages: 430
       }

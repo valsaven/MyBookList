@@ -26,12 +26,12 @@ const paths = {
     styles: [`${clientPath}/assets/css/*.css`],
     mainStyle: `${clientPath}/app.css`,
     views: `${clientPath}/app/components/**/*.html`,
-    mainView: `${clientPath}/index.html`
+    mainView: `${clientPath}/index.html`,
   },
   server: {
-    scripts: [`${serverPath}/**/*.js`]
+    scripts: [`${serverPath}/**/*.js`],
   },
-  dist: 'dist'
+  dist: 'dist',
 };
 
 /**
@@ -48,7 +48,7 @@ function onServerLog(log) {
 function checkAppReady(cb) {
   const options = {
     host: 'localhost',
-    port: config.port
+    port: config.port,
   };
   http.get(options, () => cb(true))
     .on('error', () => cb(false));
@@ -74,7 +74,7 @@ function whenServerReady(cb) {
 
 // env:all
 gulp.task('env:all', () => {
-  let localConfig = { DOMAIN: 'http://localhost:9000' };
+  const localConfig = { DOMAIN: 'http://localhost:9000' };
   plugins.env({ vars: localConfig });
 });
 
@@ -96,8 +96,8 @@ gulp.task('inject:css', () => {
             .replace(`/${clientPath}/assets/css/`, '/assets/css/')
             .replace(/_(.*).css/, (match, p1, offset, string) => p1);
           return `@import '${newPath}';`;
-        }
-      }
+        },
+      },
     ))
     .pipe(gulp.dest(`${clientPath}/`));
 });

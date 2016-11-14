@@ -10,7 +10,7 @@ import path from 'path';
 import config from './env';
 
 export default function (app) {
-  let env = app.get('env');
+  const env = app.get('env');
 
   app.use(express.static(path.join(config.root, '.tmp')));
 
@@ -39,12 +39,12 @@ export default function (app) {
         stats: {
           colors: true,
           timings: true,
-          chunks: false
-        }
-      })
+          chunks: false,
+        },
+      }),
     ],
     port: config.browserSyncPort,
-    plugins: ['bs-fullscreen-message']
+    plugins: ['bs-fullscreen-message'],
   });
 
   compiler.plugin('done', (stats) => {
@@ -53,7 +53,7 @@ export default function (app) {
       return browserSync.sockets.emit('fullscreen:message', {
         title: 'Webpack Error:',
         body: stripAnsi(stats.toString()),
-        timeout: 100000
+        timeout: 100000,
       });
     }
     browserSync.reload();

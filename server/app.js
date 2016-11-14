@@ -4,10 +4,10 @@
 
 'use strict';
 
-import config from './config/env';
-import db from './db';
 import express from 'express';
 import http from 'http';
+import config from './config/env';
+import db from './db';
 
 if (config.seedDB) {
   require('./config/seed');

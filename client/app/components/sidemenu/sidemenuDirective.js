@@ -9,6 +9,6 @@ export class SideMenuComponent {}
 export default angular.module('directives.sidemenu', [])
   .component('sidemenu', {
     template: require('./sidemenu.html'),
-    controller: SideMenuComponent
+    controller: SideMenuComponent,
   })
   .name;

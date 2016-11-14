@@ -4,19 +4,19 @@
 
 'use strict';
 
-import config from '../config/env';
 import Sequelize from 'sequelize';
+import config from '../config/env';
 
 const sequelize = new Sequelize(
   null, // database
   null, // username
   null, // password
-  config.sequelize.options
+  config.sequelize.options,
 );
 
 const db = {
   sequelize,
-  Sequelize
+  Sequelize,
 };
 
 // Test DB connection

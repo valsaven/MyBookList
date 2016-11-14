@@ -82,8 +82,8 @@ export function index(req, res) {
 export function show(req, res) {
   return Book.find({
     where: {
-      id: req.params.id
-    }
+      id: req.params.id,
+    },
   })
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
@@ -107,8 +107,8 @@ export function upsert(req, res) {
 
   return Book.upsert(req.body, {
     where: {
-      id: req.params.id
-    }
+      id: req.params.id,
+    },
   })
     .then(respondWithResult(res))
     .catch(handleError(res));
@@ -122,8 +122,8 @@ export function patch(req, res) {
 
   return Book.find({
     where: {
-      id: req.params.id
-    }
+      id: req.params.id,
+    },
   })
     .then(handleEntityNotFound(res))
     .then(patchUpdates(req.body))
@@ -135,8 +135,8 @@ export function patch(req, res) {
 export function destroy(req, res) {
   return Book.find({
     where: {
-      id: req.params.id
-    }
+      id: req.params.id,
+    },
   })
     .then(handleEntityNotFound(res))
     .then(removeEntity(res))

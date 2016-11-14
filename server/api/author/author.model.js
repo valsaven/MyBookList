@@ -8,24 +8,24 @@ export default function (sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       allowNull: false,
       autoIncrement: true,
-      primaryKey: true
+      primaryKey: true,
     },
     firstName: DataTypes.STRING,
     lastName: DataTypes.STRING,
     born: DataTypes.DATEONLY,
     died: DataTypes.DATEONLY,
-    description: DataTypes.STRING
+    description: DataTypes.STRING,
   }, {
     classMethods: {
-      associate: function (models) {
+      associate(models) {
         Author.belongsToMany(models.Book, {
           through: models.BookHasAuthor,
           foreignKey: 'author_id',
-          constraints: true
+          constraints: true,
         });
-      }
+      },
     },
-    tableName: 'author'
+    tableName: 'author',
   });
 
   return Author;

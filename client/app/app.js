@@ -21,6 +21,6 @@ angular.module('myBookListApp', [uiRouter, book, cover, header])
 angular.element(document)
   .ready(() => {
     angular.bootstrap(document, ['myBookListApp'], {
-      strictDi: true
+      strictDi: true,
     });
   });

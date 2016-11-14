@@ -8,25 +8,25 @@ export default function (sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       allowNull: false,
       autoIncrement: true,
-      primaryKey: true
+      primaryKey: true,
     },
     title: DataTypes.STRING,
     status: DataTypes.INTEGER,
     comment: DataTypes.STRING,
     year: DataTypes.INTEGER,
     currentPage: DataTypes.INTEGER,
-    totalPages: DataTypes.INTEGER
+    totalPages: DataTypes.INTEGER,
   }, {
     classMethods: {
-      associate: function (models) {
+      associate(models) {
         Book.belongsToMany(models.Author, {
           through: models.BookHasAuthor,
           foreignKey: 'book_id',
-          constraints: true
+          constraints: true,
         });
-      }
+      },
     },
-    tableName: 'book'
+    tableName: 'book',
   });
 
   return Book;

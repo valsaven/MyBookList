@@ -23,7 +23,7 @@ const all = {
   ip: process.env.IP || '0.0.0.0',
 
   // Fill DB with sample data
-  seedDB: true
+  seedDB: true,
 };
 
 module.exports = _.merge(

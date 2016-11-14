@@ -16,7 +16,6 @@
 import jsonpatch from 'fast-json-patch';
 import { Author } from '../../db';
 
-
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
 
@@ -83,8 +82,8 @@ export function index(req, res) {
 export function show(req, res) {
   return Author.find({
     where: {
-      id: req.params.id
-    }
+      id: req.params.id,
+    },
   })
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
@@ -106,8 +105,8 @@ export function upsert(req, res) {
 
   return Author.upsert(req.body, {
     where: {
-      id: req.params.id
-    }
+      id: req.params.id,
+    },
   })
     .then(respondWithResult(res))
     .catch(handleError(res));
@@ -121,8 +120,8 @@ export function patch(req, res) {
 
   return Author.find({
     where: {
-      id: req.params.id
-    }
+      id: req.params.id,
+    },
   })
     .then(handleEntityNotFound(res))
     .then(patchUpdates(req.body))
@@ -134,8 +133,8 @@ export function patch(req, res) {
 export function destroy(req, res) {
   return Author.find({
     where: {
-      id: req.params.id
-    }
+      id: req.params.id,
+    },
   })
     .then(handleEntityNotFound(res))
     .then(removeEntity(res))

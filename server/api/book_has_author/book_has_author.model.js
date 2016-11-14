@@ -9,27 +9,27 @@ export default function (sequelize, DataTypes) {
       primaryKey: true,
       references: {
         model: 'Book',
-        key: 'id'
+        key: 'id',
       },
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
     },
     author_id: {
       allowNull: false,
       primaryKey: true,
       references: {
         model: 'Author',
-        key: 'id'
+        key: 'id',
       },
-      type: DataTypes.INTEGER
-    }
+      type: DataTypes.INTEGER,
+    },
   }, {
     classMethods: {
-      associate: function (models) {
+      associate(models) {
         BookHasAuthor.belongsTo(models.Book, { foreignKey: 'id' });
         BookHasAuthor.belongsTo(models.Author, { foreignKey: 'id' });
-      }
+      },
     },
-    tableName: 'book_has_author'
+    tableName: 'book_has_author',
   });
 
   return BookHasAuthor;

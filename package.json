@@ -24,7 +24,7 @@
     "errorhandler": "^1.4.3",
     "express": "^4.14.0",
     "fast-json-patch": "^1.1.1",
-    "lodash": "^4.17.0",
+    "lodash": "^4.17.1",
     "sequelize": "^3.25.0",
     "sqlite3": "^3.1.8"
   },
@@ -41,6 +41,9 @@
     "chai-http": "^3.0.0",
     "css-loader": "^0.25.0",
     "del": "^2.2.2",
+    "eslint": "^3.10.1",
+    "eslint-config-airbnb-base": "^10.0.1",
+    "eslint-plugin-import": "^2.2.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
     "gulp": "^3.9.1",

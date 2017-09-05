@@ -13,7 +13,6 @@ A project for work with a collection of books.
 ## Authors
 
 * Val Saven &lt;val.saven@gmail.com&gt;
-* Jil Saven &lt;jil.saven@gmail.com&gt;
 
 ## License
 

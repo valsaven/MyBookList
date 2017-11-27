@@ -17,3 +17,6 @@ client/index.html
 
 # Database
 db.sqlite
+
+# Codealike
+codealike.json

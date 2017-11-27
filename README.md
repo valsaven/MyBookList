@@ -2,17 +2,33 @@
 
 # MyBookList
 
-A project for work with a collection of books.
+A project for work with a book collection. Written with Vue.js.
 
-## How to run
+## Build Setup
 
-1. Clone the code repository.
-2. Open terminal to code repository.
-4. Run `gulp serve` to work with the application.
+```bash
+# install dependencies
+npm install
 
-## Authors
+# serve with hot reload at localhost:8080
+npm run dev
 
-* Val Saven &lt;val.saven@gmail.com&gt;
+# build for production with minification
+npm run build
+
+# build for production and view the bundle analyzer report
+npm run build --report
+
+# run unit tests
+npm run unit
+
+# run all tests
+npm test
+```
+
+## Author
+
+Val Saven &lt;val.saven@gmail.com&gt;
 
 ## License
 

@@ -1,22 +1,16 @@
-# Logs
-logs
-*.log
+.DS_Store
+node_modules/
+/dist/
 npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+/test/unit/coverage/
 
-# Dependency directories
-node_modules
-
-# Idea
+# Editor directories and files
 .idea
-
-# Built index
-client/index.html
-
-# Temp
-.tmp
-
-# Database
-db.sqlite
-
-# Codealike
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
 codealike.json
